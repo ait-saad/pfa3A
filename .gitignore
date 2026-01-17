@@ -1,0 +1,63 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+*.egg-info/
+dist/
+build/
+
+# Model files
+*.pkl
+*.h5
+*.keras
+*.pb
+
+# Data files
+data/*.csv
+data/*.json
+data/raw/
+data/processed/
+
+# Environment
+.env
+.env.local
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Node/Expo
+node_modules/
+.expo/
+.expo-shared/
+npm-debug.*
+yarn-error.*
+yarn.lock
+package-lock.json
+
+# Mobile
+*.apk
+*.ipa
+*.aab
+
+# Docker
+*.log
+
+# Jupyter
+.ipynb_checkpoints/
+
+# MongoDB
+mongo_data/
+.vercel

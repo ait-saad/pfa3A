@@ -1,0 +1,35 @@
+{
+  "expo": {
+    "name": "Smart Sleep Tracker",
+    "slug": "smart-sleep-tracker",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "updates": {
+      "fallbackToCacheTimeout": 0,
+      "url": "http://localhost:19000"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSMotionUsageDescription": "This app uses motion sensors to track your sleep patterns."
+      }
+    },
+    "android": {
+      "package": "com.smartsleeptracker.app",
+      "permissions": [
+        "android.permission.VIBRATE"
+      ]
+    },
+    "web": {
+      "bundler": "metro"
+    }
+  }
+}

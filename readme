@@ -1,0 +1,52 @@
+# Suivi Intelligent du Sommeil (Smart Sleep Tracker)
+
+## 📝 Présentation du Projet
+Ce projet de fin d'année consiste en une application mobile intelligente capable de suivre, d'analyser et de scorer la qualité du sommeil d'un utilisateur sans matériel externe. En utilisant uniquement les capteurs internes du smartphone (accéléromètre, microphone), le système classifie les phases de sommeil et fournit des recommandations personnalisées.
+
+## 🚀 Fonctionnalités Clés
+* **Analyse Actigraphique :** Utilisation de l'accéléromètre pour détecter les mouvements nocturnes.
+* **Classification par IA :** Modèle de Machine Learning pour identifier les cycles (Sommeil Léger, Profond, Paradoxal).
+* **Calcul de Score de Sommeil :** Algorithme basé sur la durée, la latence et l'agitation.
+* **Réveil Intelligent :** Alarme déclenchée pendant une phase de sommeil léger pour un réveil optimal.
+* **Dashboard Statistique :** Visualisation historique des données de sommeil.
+
+## 🛠️ Architecture Technique
+Le projet repose sur une approche purement logicielle et data-driven :
+
+### 1. Collecte des KPI (Key Performance Indicators)
+Le smartphone agit comme un hub de capteurs :
+* **Accéléromètre :** Extraction de la magnitude du mouvement ($VM = \sqrt{x^2 + y^2 + z^2}$).
+* **Microphone :** Analyse du niveau sonore (dB) pour les ronflements et la respiration.
+* **Capteur de Lumière :** Analyse de l'environnement de la chambre.
+
+### 2. Pipeline de Traitement
+1.  **Extraction de Features :** Calcul de la variance, de l'écart-type et des passages par zéro (Zero-Crossing Rate) sur des fenêtres de 30 secondes.
+2.  **Inférence :** Passage des données dans un modèle de classification (ex: Random Forest ou LSTM).
+3.  **Post-traitement :** Lissage des prédictions pour générer un hypnogramme cohérent.
+
+
+
+## 📊 Dataset & Modèle
+* **Entraînement :** Utilisation de datasets publics (ex: PhysioNet, MESA) pour corréler les données accélérométriques avec des états de sommeil réels.
+* **Modèle :** [Insérer le nom du modèle, ex: Réseau de neurones récurrents (RNN) / Random Forest].
+
+## 💻 Installation & Utilisation
+*(Section à adapter selon votre technologie : Flutter, Android Studio, Python)*
+
+1.  Cloner le répertoire :
+    ```bash
+    git clone [https://github.com/votre-utilisateur/sleep-tracker-project.git](https://github.com/votre-utilisateur/sleep-tracker-project.git)
+    ```
+2.  Installer les dépendances : [Ex: `npm install` ou `pip install -r requirements.txt`]
+3.  Lancer l'application sur un smartphone ou un émulateur.
+
+## 📂 Structure du Répertoire
+* `/app` : Code source de l'application mobile.
+* `/model` : Notebooks Python (Jupyter) pour l'entraînement du modèle d'IA.
+* `/data` : Échantillons de données collectées et traitées.
+* `/docs` : Documentation technique et rapport de projet.
+
+---
+© 2024 - Projet de Fin d'Année - Réalisé par [Votre Nom / Votre Équipe]
+
+Voici un résumé détaillé des projets GitHub les plus pertinents pour votre projet. Ces dépôts couvrent toute la chaîne, de la collecte sur mobile au modèle d'intelligence artificielle.1. josephbima/sleep-trackerLe plus proche de votre besoin (Android + ML)Résumé : Ce projet utilise l'accéléromètre tri-axial d'un smartphone Android pour déterminer si l'utilisateur est éveillé ou endormi. L'idée est de poser le téléphone sur le lit (actigraphie).Outils utilisés : Android (Java/Kotlin), Python pour la partie ML.KPI collectés : Moyenne, écart-type, magnitude du vecteur ($VM$), fréquence dominante et entropie des mouvements.Modèle : Classifieur de type Random Forest.Point fort : Il explique très bien comment transformer les secousses du matelas en données "sommeil vs réveil".2. vmiklos/plees-trackerLe meilleur exemple d'Application Mobile (Open Source)Résumé : Une application Android complète, disponible sur F-Droid. Elle se concentre sur l'interface utilisateur, la gestion des statistiques et l'export des données.Outils utilisés : Kotlin (97%), SQLite pour le stockage local.Fonctionnalités : Calcul des moyennes de sommeil, graphiques de déficit de sommeil, export CSV.Point fort : Le code est très propre et moderne. C'est la base idéale pour votre interface mobile.3. famousgrouse/AccSleepNetLe cœur de l'Intelligence Artificielle (Deep Learning)Résumé : Une implémentation d'un réseau de neurones profond (Deep Learning) dédié spécifiquement au "scoring" automatique des phases de sommeil via accéléromètre.Outils utilisés : Python, TensorFlow/Keras, Scikit-learn.Technique : Utilise la magnitude du signal accéléromètre comme entrée unique pour prédire les stades (Léger, Profond, REM).Point fort : C'est le projet le plus "scientifique". Il s'inspire de modèles utilisés avec des données médicales (EEG) mais les adapte au mouvement.4. elyiorgos/sleeppyL'outil d'analyse de données (Pipeline Data Science)Résumé : Un package Python conçu pour traiter des flux de données d'accéléromètre brut (X, Y, Z) sur plusieurs jours.Outils utilisés : Python, Pandas, NumPy, Matplotlib.KPI collectés : Activity Index, angle du bras (pour détecter la position), et détection du "porté/non-porté" (Off-body detection).Point fort : Fournit des scripts pour générer des rapports automatiques et des graphiques de cycles (hypnogrammes) très pros.Synthèse pour votre projetComposantRecommandationSource d'inspirationLangage MobileFlutter ou Kotlinplees-trackerCapture DonnéesAccéléromètre ($10$ Hz à $50$ Hz)josephbima/sleep-trackerTraitement IARandom Forest ou LSTMAccSleepNetVisualisationHypnogramme (Graphique en escalier)sleeppyConseil stratégique :Je vous suggère de commencer par regarder plees-tracker pour voir comment enregistrer les données proprement sur un téléphone sans vider la batterie, puis d'utiliser les formules mathématiques de sleeppy pour transformer vos fichiers CSV en scores de sommeil.
