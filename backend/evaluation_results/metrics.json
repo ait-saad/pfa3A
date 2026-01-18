@@ -1,0 +1,69 @@
+{
+  "evaluation_date": "2026-01-18T14:55:53.573530",
+  "model_info": {
+    "architecture": "3-Layer LSTM",
+    "sequence_length": 60,
+    "n_features": 4,
+    "total_parameters": "~300,000"
+  },
+  "test_data": {
+    "total_samples": 1000,
+    "test_predictions": 940,
+    "classes": 4
+  },
+  "overall_metrics": {
+    "accuracy": 0.2712765957446808,
+    "precision": 0.26715763275204085,
+    "recall": 0.2712765957446808,
+    "f1_score": 0.2558831424226193
+  },
+  "per_class_metrics": {
+    "Awake": {
+      "accuracy": 0.11864406779661017,
+      "samples": 236
+    },
+    "Light Sleep": {
+      "accuracy": 0.18487394957983194,
+      "samples": 238
+    },
+    "Deep Sleep": {
+      "accuracy": 0.45689655172413796,
+      "samples": 232
+    },
+    "REM Sleep": {
+      "accuracy": 0.32905982905982906,
+      "samples": 234
+    }
+  },
+  "confidence_analysis": {
+    "average": 0.2789433369294126,
+    "min": 0.2528240382671356,
+    "max": 0.3300628066062927
+  },
+  "confusion_matrix": [
+    [
+      28,
+      45,
+      97,
+      66
+    ],
+    [
+      34,
+      44,
+      102,
+      58
+    ],
+    [
+      30,
+      31,
+      106,
+      65
+    ],
+    [
+      32,
+      34,
+      91,
+      77
+    ]
+  ]
+}
