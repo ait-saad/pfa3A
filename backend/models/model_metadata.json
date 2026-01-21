@@ -1,0 +1,14 @@
+{
+  "window_size": 60,
+  "n_features": 4,
+  "n_classes": 4,
+  "test_accuracy": 1.0,
+  "trained_date": "2026-01-20T23:11:11.501797",
+  "dataset": "sleep_dataset_small.csv",
+  "stage_mapping": {
+    "0": "awake",
+    "1": "light",
+    "2": "deep",
+    "3": "rem"
+  }
+}

@@ -19,9 +19,12 @@ build/
 
 # Data files
 data/*.csv
+*.csv
 data/*.json
 data/raw/
 data/processed/
+backend/data/*.csv
+backend/data/*.json
 
 # Environment
 .env
